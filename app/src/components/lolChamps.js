@@ -15,12 +15,19 @@ const LoLChamps = (props) => {
           {props.isFetching && <div>fetching champions...</div>}
           {props.data &&
             props.data.map((card) => {
+                console.log(card)
               return (
                 <div>
                   <h2>{card.name}</h2>
                   <h3>{card.title}</h3>
-                  <img src={card.image} />
+                  <p> Attack: {card.info.attack}</p>
+                  <p> Defense: {card.info.defense}</p>
+                  <p> Magic: {card.info.magic}</p>
+                  <p> Difficulty: {card.info.difficulty}</p>
+                  <h4>{card.blurb}</h4>
+                  <img src={card.image.sprite} />
                 </div>
+                // {card.map((item) )}
               );
             })}
         </div>

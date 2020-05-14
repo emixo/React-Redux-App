@@ -9,7 +9,7 @@ export const fetchLolChamps = () => {
         axios.get("http://ddragon.leagueoflegends.com/cdn/10.10.3208608/data/en_US/champion.json")
         .then(res => {
             console.log(res.data.data)
-            dispatch({type:CARD_FETCH_SUCCESS, payload:res.data.data})
+            dispatch({type:CARD_FETCH_SUCCESS, payload: Object.values(res.data.data)})
 
         })
     }
