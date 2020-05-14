@@ -1,6 +1,15 @@
 import React, {useEffect} from "react";
 import { connect } from "react-redux";
 import { fetchLolChamps } from "../actions/champActions";
+import styled from "styled-components"
+
+const Container = styled.div`
+background-color: #333;
+    box-shadow: inset 0 0 10px 10px gray;
+    padding: 1rem;
+    color: lightgray;
+    text-shadow: 0 0 10px goldenrod;
+    `
 
 
 const LoLChamps = (props) => {
@@ -8,10 +17,7 @@ const LoLChamps = (props) => {
         props.fetchLolChamps();
       }, []);
       return (
-        <div className="cardContainer">
-          <header>
-            <h1>League Of Legends Champions</h1>
-          </header>
+        <Container>
           {props.isFetching && <div>fetching champions...</div>}
           {props.data &&
             props.data.map((card) => {
@@ -30,7 +36,7 @@ const LoLChamps = (props) => {
                 // {card.map((item) )}
               );
             })}
-        </div>
+        </Container>
       );
     };
 
